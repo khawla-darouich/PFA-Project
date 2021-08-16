@@ -19,9 +19,9 @@ import ormva.Auth.User;
 public class Rubrique{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String desgnation;
+	private Long id;
+	private String desgnation;
 	@OneToMany(mappedBy = "rubrique")
-	Collection<Sous_Rubrique> sousRubriques;
+	private Collection<Sous_Rubrique> sousRubriques;
 
 }

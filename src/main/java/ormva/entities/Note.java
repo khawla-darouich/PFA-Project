@@ -18,12 +18,12 @@ import lombok.NoArgsConstructor;
 public class Note {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String objet;
-	String note;
-	Character reponse;
+	private Long id;
+	private String objet;
+	private String note;
+	private Character reponse;
 	
 	@ManyToOne
-	Dossier dossier;
+	private Dossier dossier;
 
 }

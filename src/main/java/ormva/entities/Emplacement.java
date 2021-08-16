@@ -23,12 +23,12 @@ import ormva.Auth.Role;
 public class Emplacement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String designation;
-	Long periodeA;
-	Long periodeR;
+	private Long id;
+	private String designation;
+	private Long periodeA;
+	private Long periodeR;
 	
 	@OneToMany(mappedBy = "emplacement")
-	Collection<Historique> historiques;
+	private Collection<Historique> historiques;
 
 }

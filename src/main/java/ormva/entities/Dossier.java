@@ -25,24 +25,24 @@ import ormva.Auth.User;
 public class Dossier {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String saba;
-	String reference;
+	private Long id;
+	private String saba;
+	private String reference;
 	
 	@OneToMany(mappedBy = "dossier")
-	Collection<Note> notes;
+	private Collection<Note> notes;
 	
 	@ManyToOne
-	Agriculteur agriculteur;
+	private Agriculteur agriculteur;
 	
 	@ManyToOne 
-	Sous_Rubrique sousRubrique;
+	private Sous_Rubrique sousRubrique;
 	
 	@ManyToOne
-	Cda cda;
+	private Cda cda;
 	
 	@OneToMany(mappedBy = "dossier")
-	Collection<Historique> historiques;
+	private Collection<Historique> historiques;
 
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(

@@ -19,13 +19,13 @@ import lombok.NoArgsConstructor;
 public class Agriculteur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String nom;
-	String prenom;
-	String tel;
-	String cin;
-	Date date_notification;
+	private Long id;
+	private String nom;
+	private String prenom;
+	private String tel;
+	private String cin;
+	private Date date_notification;
 	@OneToMany(mappedBy = "agriculteur")
-	Collection<Dossier> dossiers;
+	private Collection<Dossier> dossiers;
 
 }

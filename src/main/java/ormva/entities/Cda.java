@@ -19,12 +19,12 @@ import lombok.NoArgsConstructor;
 public class Cda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String description;
+	private Long id;
+	private String description;
 	@OneToMany(mappedBy = "cda")
-	Collection<Dossier> dossiers;
+	private Collection<Dossier> dossiers;
 	@ManyToOne
-	Antenne antenne;
+	private Antenne antenne;
 
 
 }

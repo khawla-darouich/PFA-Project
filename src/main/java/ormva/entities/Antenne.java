@@ -25,8 +25,8 @@ public class Antenne implements Serializable{
 	private String abreviation;
 	
 	@OneToMany(mappedBy = "antenne")
-	Collection<User> users;
+	private Collection<User> users;
 	
 	@OneToMany(mappedBy = "antenne")
-	Cda cdas;
+	private Cda cdas;
 }

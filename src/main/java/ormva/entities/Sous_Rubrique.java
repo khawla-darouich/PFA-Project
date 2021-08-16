@@ -20,10 +20,10 @@ import lombok.NoArgsConstructor;
 public class Sous_Rubrique {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String designation;
+	private Long id;
+	private String designation;
 	@ManyToOne
-	Rubrique rubrique;
+	private Rubrique rubrique;
 	@OneToMany(mappedBy = "sousRubrique")
-	Collection<Dossier> dossiers;
+	private Collection<Dossier> dossiers;
 }

@@ -17,9 +17,9 @@ import lombok.NoArgsConstructor;
 public class Etape {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String designation;
-	Long periode;
+	private Long id;
+	private String designation;
+	private Long periode;
 
 	
 
