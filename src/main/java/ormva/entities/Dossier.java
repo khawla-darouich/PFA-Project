@@ -13,14 +13,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import ormva.Auth.Role;
 import ormva.Auth.User;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 
 public class Dossier {
 	@Id
@@ -28,8 +32,10 @@ public class Dossier {
 	private Long id;
 	private String saba;
 	private String reference;
+	private Boolean envoyer;
 	
 	@OneToMany(mappedBy = "dossier")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Note> notes;
 	
 	@ManyToOne
@@ -44,7 +50,7 @@ public class Dossier {
 	@OneToMany(mappedBy = "dossier")
 	private Collection<Historique> historiques;
 
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(
 			name="etat",
 			joinColumns = @JoinColumn(
@@ -54,6 +60,7 @@ public class Dossier {
 					name="etape_id", referencedColumnName = "id"
 					)
 			)
+	//@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Etape> etapes;
 	
 	
@@ -67,5 +74,6 @@ public class Dossier {
 					name="user_id", referencedColumnName = "id"
 					)
 			)
+	//@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<User> users;
 }

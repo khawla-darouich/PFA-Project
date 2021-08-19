@@ -26,15 +26,18 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import ormva.entities.Antenne;
+import ormva.entities.Dossier;
 
 
 @Entity
 @Table(name="user ", uniqueConstraints=@UniqueConstraint(columnNames="email"))
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor @ToString
 public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	
 	@Column(name="nom")
@@ -62,6 +65,10 @@ public class User implements Serializable{
 	
 	@ManyToOne
 	private Antenne antenne;
+	
+	@ManyToMany(mappedBy = "users")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	Collection<Dossier> dossiers;
 	
 
 }

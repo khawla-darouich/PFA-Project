@@ -8,5 +8,5 @@ import ormva.entities.Dossier;
 
 @RepositoryRestResource
 public interface DossierRepository extends JpaRepository<Dossier, Long> {
-
+	Dossier findDossierBySaba(String saba);
 }

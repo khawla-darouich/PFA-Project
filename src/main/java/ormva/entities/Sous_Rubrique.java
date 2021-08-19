@@ -9,14 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Sous_Rubrique {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +29,6 @@ public class Sous_Rubrique {
 	@ManyToOne
 	private Rubrique rubrique;
 	@OneToMany(mappedBy = "sousRubrique")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Dossier> dossiers;
 }

@@ -20,7 +20,14 @@ public class PfaProjectApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		ormvaService.initRole();
 		ormvaService.initAntenne();
-		
+		ormvaService.initAgriculteur();
+		ormvaService.initCda();
+		ormvaService.initEmplacement();
+		ormvaService.initEtape();
+		ormvaService.initRubrique();
+		ormvaService.initSousRubrique();
+		//ormvaService.initDossier();
+		//ormvaService.initNote();
 	}
 
 }

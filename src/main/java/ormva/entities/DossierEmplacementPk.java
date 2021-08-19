@@ -1,10 +1,16 @@
 package ormva.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
-public class DossierEmplacementPk {
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Embeddable @AllArgsConstructor @ToString @NoArgsConstructor
+public class DossierEmplacementPk implements Serializable {
 	
 	@Column(name = "DOSSIER_ID")
 	private Long dossier_id;

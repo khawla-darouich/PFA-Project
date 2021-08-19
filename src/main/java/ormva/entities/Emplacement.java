@@ -12,13 +12,17 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import ormva.Auth.Role;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 
 public class Emplacement {
 	@Id
@@ -29,6 +33,7 @@ public class Emplacement {
 	private Long periodeR;
 	
 	@OneToMany(mappedBy = "emplacement")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Historique> historiques;
 
 }

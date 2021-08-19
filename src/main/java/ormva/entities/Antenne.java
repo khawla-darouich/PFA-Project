@@ -10,13 +10,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import ormva.Auth.User;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Antenne implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +28,5 @@ public class Antenne implements Serializable{
 	private String designation;
 	private String abreviation;
 	
-	@OneToMany(mappedBy = "antenne")
-	private Collection<User> users;
 	
-	@OneToMany(mappedBy = "antenne")
-	private Cda cdas;
 }
