@@ -58,7 +58,7 @@ public class DossierService implements IService<Dossier> {
 		historique.setEmplacement(emplacementRepository.findById(1L).get());
 		historique.setId(new DossierEmplacementPk(dossier.getId(),1L));
 		historique.setDossier(dossier);
-		historique.setDate_reception(new Date());
+		historique.setDatereception(new Date());
 		historiqueRepository.save(historique);
 		return dossier;
 	}
@@ -89,9 +89,10 @@ public class DossierService implements IService<Dossier> {
 		Dossier dossier=dossierRepository.findById(dossier_id).get();
 		dossier.setEnvoyer(true);
 		
-		Historique historique=historiqueRepository.findById(new DossierEmplacementPk(dossier_id,emplacement_id)).get();
+		Historique historique=historiqueRepository.findFirst1ById_DossieridOrderByDatereceptionDesc(dossier_id);
 		historique.setDate_envoi(new Date());
 		historiqueRepository.save(historique);
+		//System.out.println("\n\n\n****************************"+historique);
 		return dossierRepository.save(dossier);
 		 
 	}

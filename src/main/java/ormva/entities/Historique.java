@@ -22,7 +22,7 @@ public class Historique {
 	@EmbeddedId
 	private DossierEmplacementPk id;
 	
-	private Date date_reception;
+	private Date datereception;
 	private Date date_envoi;
 	
 	@ManyToOne

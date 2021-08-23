@@ -48,6 +48,7 @@ public class Dossier {
 	private Cda cda;
 	
 	@OneToMany(mappedBy = "dossier")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Historique> historiques;
 
 	@ManyToMany
@@ -60,7 +61,7 @@ public class Dossier {
 					name="etape_id", referencedColumnName = "id"
 					)
 			)
-	//@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Etape> etapes;
 	
 	
@@ -74,6 +75,6 @@ public class Dossier {
 					name="user_id", referencedColumnName = "id"
 					)
 			)
-	//@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<User> users;
 }

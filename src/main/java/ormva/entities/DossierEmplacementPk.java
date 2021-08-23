@@ -13,7 +13,7 @@ import lombok.ToString;
 public class DossierEmplacementPk implements Serializable {
 	
 	@Column(name = "DOSSIER_ID")
-	private Long dossier_id;
+	private Long dossierid;
 	
 	@Column(name = "EMPLACEMENT_ID")
 	private Long emplacement_id;

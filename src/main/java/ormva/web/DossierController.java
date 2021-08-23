@@ -47,4 +47,11 @@ public class DossierController {
 		service.delete(id, null);
 	}
 
+	@PostMapping("/envoyerDossier/{id}")
+	public Dossier envoyerDossier(HttpServletRequest request, @PathVariable Long id)
+	{
+		Principal principal = request.getUserPrincipal();
+		return service.envoyer(id, principal, null);
+	}
+	
 }

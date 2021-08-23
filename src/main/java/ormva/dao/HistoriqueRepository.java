@@ -9,5 +9,5 @@ import ormva.entities.Historique;
 
 @RepositoryRestResource
 public interface HistoriqueRepository extends JpaRepository<Historique, DossierEmplacementPk> {
-
+	 Historique findFirst1ById_DossieridOrderByDatereceptionDesc(Long id);
 }
